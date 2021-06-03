@@ -1,4 +1,5 @@
 import {useState} from 'react'
+import Header from './header'
 function Product({product,basket,setBasket,money,setMoney}) {
     const basketItem = basket.find(item => item.id == product.id)
     const addBasket = () =>{
@@ -13,6 +14,7 @@ function Product({product,basket,setBasket,money,setMoney}) {
         }else{
         setBasket([...basket, {
             id: product.id,
+            title: product.title,
             amount: 1,
             price: product.price
         }])
@@ -47,7 +49,7 @@ function Product({product,basket,setBasket,money,setMoney}) {
        <div className="actions">
        <button disabled={!basketItem} onClick={removeBasket} className="sell-btn">Sat</button>
        <span className="amount">{basketItem && basketItem.amount || 0}</span>
-       <button disabled= { money < product.price} onClick={addBasket} className="buy-btn">Satın Al</button>
+       <button disabled= { money < product.price} onClick={addBasket} className="buy-btn">Satın Al</button> 
        </div>
       <style jsx>{`
                   .product {

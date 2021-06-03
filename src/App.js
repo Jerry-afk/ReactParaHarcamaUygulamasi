@@ -4,6 +4,7 @@ import {useState,
         useEffect} from 'react'
 import products from './products.json'
 import Product from './components/Product'
+import Basket from './components/Basket'
 
 
 function App() {
@@ -16,7 +17,10 @@ function App() {
     <div className="container products">
     {products.map(product => (
       <Product key={product.id} basket={basket} setBasket= {setBasket} money={money} setMoney={setMoney} product={product}/>
-    ))}</div>
+    ))} 
+    </div>
+    <Basket basket={basket}/>
+
     </>
   );
 }
